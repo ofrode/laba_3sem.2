@@ -6,14 +6,14 @@ class String
 {
 private:
     char *data;
-    int length;
+    int length = 0;
 
     void freeMemory();
     void copyFrom(const char *str, int len);
 
 public:
     String();
-    String(const char *str);
+    explicit String(const char *str);
     String(const String &other);
     ~String();
     
@@ -27,8 +27,7 @@ public:
     
     friend std::ostream &operator<<(std::ostream &os, const String &str);
     friend std::istream &operator>>(std::istream &is, String &str);
+    friend String operator+(const String& lhs, const String& rhs);
+    friend String operator+(const String& lhs, const char* rhs);
+    friend String operator+(const char* lhs, const String& rhs);
 };
-
-String operator+(const String& lhs, const String& rhs);
-String operator+(const String& lhs, const char* rhs);
-String operator+(const char* lhs, const String& rhs);

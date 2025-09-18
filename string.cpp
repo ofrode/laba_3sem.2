@@ -21,13 +21,12 @@ void String::copyFrom(const char *str, int len)
     length = len;
 }
 
-String::String() : data(nullptr), length(0)
+String::String() : data(new char[1])
 {
-    data = new char[1];
     data[0] = '\0';
 }
 
-String::String(const char *str) : data(nullptr), length(0)
+String::String(const char *str) : data(nullptr)
 {
     if (str != nullptr)
     {
@@ -106,8 +105,8 @@ String &String::operator+=(const char *str)
 {
     if (str != nullptr && str[0] != '\0')
     {
-        int strLen = strlen(str);
-        char *newData = new char[length + strLen + 1];
+        auto strLen = strlen(str);
+        auto *newData = new char[length + strLen + 1];
 
         if (data != nullptr)
         {
