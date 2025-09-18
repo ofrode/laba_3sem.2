@@ -129,7 +129,7 @@ String &String::operator+=(const String &other)
 {
     if (other.length > 0 && other.data != nullptr)
     {
-        char *newData = new char[length + other.length + 1];
+        auto *newData = new char[length + other.length + 1];
 
         if (data != nullptr)
         {
@@ -149,19 +149,19 @@ String &String::operator+=(const String &other)
 }
 
 
-String operator+(const String& lhs, const String& rhs) {
+String String::operator+(const String& lhs, const String& rhs) {
     String result = lhs;
     result += rhs;
     return result;
 }
 
-String operator+(const String& lhs, const char* rhs) {
+String String::operator+(const String& lhs, const char* rhs) {
     String result = lhs;
     result += rhs;
     return result;
 }
 
-String operator+(const char* lhs, const String& rhs) {
+String String::operator+(const char* lhs, const String& rhs) {
     String result = lhs;
     result += rhs;
     return result;
