@@ -148,36 +148,23 @@ String &String::operator+=(const String &other)
     return *this;
 }
 
-
-String String::operator+(const String& lhs, const String& rhs) {
+String String::operator+(const String &lhs, const String &rhs)
+{
     String result = lhs;
     result += rhs;
     return result;
 }
 
-String String::operator+(const String& lhs, const char* rhs) {
+String String::operator+(const String &lhs, const char *rhs)
+{
     String result = lhs;
     result += rhs;
     return result;
 }
 
-String String::operator+(const char* lhs, const String& rhs) {
+String String::operator+(const char *lhs, const String &rhs)
+{
     String result = lhs;
     result += rhs;
     return result;
-}
-
-
-std::ostream &operator<<(std::ostream &os, const String &str) {
-    return os << (str.data ? str.data : "");
-}
-
-std::istream &operator>>(std::istream &is, String &str) {
-    const size_t MAX_BUFFER = 1024;
-    char buffer[MAX_BUFFER];
-    is.width(MAX_BUFFER);
-    if (is >> buffer) {
-        str = buffer;
-    }
-    return is;
 }

@@ -41,11 +41,11 @@ int main()
             cout << "\nВведите первую строку: ";
             cin >> str1;
             clearInputBuffer();
-            
+
             cout << "\nВы хотите скопировать первую строку (1) или написать что-то другое (2): ";
             cin >> choice;
             clearInputBuffer();
-            
+
             if (choice == 1)
             {
                 str2 = str1;
@@ -63,7 +63,7 @@ int main()
             cout << "Выберите как складывать строки: 1 - С пробелом, 2 - Без пробела: ";
             cin >> choice;
             clearInputBuffer();
-            
+
             if (choice == 1)
             {
                 str3 = str1 + " " + str2;
@@ -83,7 +83,7 @@ int main()
             cout << "\nСколько раз надо просуммировать: ";
             cin >> count;
             clearInputBuffer();
-            
+
             if (choice == 1)
             {
                 String temp = str1;
