@@ -23,6 +23,21 @@ int menu()
     return choice;
 }
 
+String concatenateStringMultipleTimes(const String &original, int count)
+{
+    if (count <= 0)
+        return String();
+    if (count == 1)
+        return original;
+
+    String result = original;
+    for (int i = 1; i < count; i++)
+    {
+        result += original;
+    }
+    return result;
+}
+
 int main()
 {
     int choice;
@@ -86,21 +101,13 @@ int main()
 
             if (choice == 1)
             {
-                String temp = str1;
-                for (int i = 1; i < count; i++)
-                {
-                    str1 += temp;
-                }
+                str1 = concatenateStringMultipleTimes(str1, count);
                 cout << "\nСтрока сложена сама с собой " << count << " раз!!!\n";
                 cout << "Ваша итоговая строка: " << str1 << "\n";
             }
             else
             {
-                String temp = str2;
-                for (int i = 1; i < count; i++)
-                {
-                    str2 += temp;
-                }
+                str2 = concatenateStringMultipleTimes(str2, count);
                 cout << "\nСтрока сложена сама с собой " << count << " раз!!!\n";
                 cout << "Ваша итоговая строка: " << str2 << "\n";
             }

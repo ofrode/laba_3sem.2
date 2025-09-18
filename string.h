@@ -31,12 +31,10 @@ public:
     }
     friend std::istream &operator>>(std::istream &is, String &str)
     {
-        const size_t MAX_BUFFER = 1024;
-        char buffer[MAX_BUFFER];
-        is.width(MAX_BUFFER);
-        if (is >> buffer)
+        std::string temp;
+        if (is >> temp)
         {
-            str = buffer;
+            str = temp.c_str();
         }
         return is;
     }
