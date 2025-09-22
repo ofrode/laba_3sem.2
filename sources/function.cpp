@@ -83,23 +83,24 @@ void sumString(const String& str1, const String& str2, String& str3)
 }
 
 void multiplyString(String& str1, String& str2)
-{
-    int choice, count;
-    cout << "Какую строку хотите просуммировать (1 или 2): ";
-    cin >> choice;
-    clearInputBuffer();
+{   
+    int choice;
+    int count;
     cout << "\nСколько раз надо просуммировать: ";
     cin >> count;
     clearInputBuffer();
 
-    if (choice == 1)
+    cout << "Какую строку хотите просуммировать (1 или 2): ";
+    if (cin >> choice; choice == 1)
     {
+        clearInputBuffer();
         str1 = concatenateStringMultipleTimes(str1, count);
         cout << "\nСтрока сложена сама с собой " << count << " раз!!!\n";
         cout << "Ваша итоговая строка: " << str1 << "\n";
     }
     else
     {
+        clearInputBuffer();
         str2 = concatenateStringMultipleTimes(str2, count);
         cout << "\nСтрока сложена сама с собой " << count << " раз!!!\n";
         cout << "Ваша итоговая строка: " << str2 << "\n";

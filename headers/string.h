@@ -31,8 +31,7 @@ public:
     }
     friend std::istream &operator>>(std::istream &is, String &str)
     {
-        std::string temp;
-        if (is >> temp)
+        if (std::string temp; is >> temp)
         {
             str = temp.c_str();
         }

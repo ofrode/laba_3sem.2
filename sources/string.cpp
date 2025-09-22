@@ -17,7 +17,8 @@ void String::freeMemory()
 void String::copyFrom(const char *str, int len)
 {
     data = new char[len + 1];
-    strcpy(data, str);
+    strncpy(data, str, len);
+    data[len] = '\0';
     length = len;
 }
 
@@ -32,7 +33,8 @@ String::String(const char *str) : data(nullptr)
     {
         length = strlen(str);
         data = new char[length + 1];
-        strcpy(data, str);
+        strncpy(data, str, length);
+        data[length] = '\0';
     }
     else
     {
@@ -46,7 +48,8 @@ String::String(const String &other) : data(nullptr), length(other.length)
     if (other.data != nullptr)
     {
         data = new char[length + 1];
-        strcpy(data, other.data);
+        strncpy(data, other.data, length);
+        data[length] = '\0';
     }
     else
     {
@@ -69,7 +72,8 @@ String &String::operator=(const char *str)
         {
             length = strlen(str);
             data = new char[length + 1];
-            strcpy(data, str);
+            strncpy(data, str, length);
+            data[length] = '\0';
         }
         else
         {
@@ -90,7 +94,8 @@ String &String::operator=(const String &other)
         if (other.data != nullptr)
         {
             data = new char[length + 1];
-            strcpy(data, other.data);
+            strncpy(data, other.data, length);
+            data[length] = '\0';
         }
         else
         {
@@ -110,14 +115,15 @@ String &String::operator+=(const char *str)
 
         if (data != nullptr)
         {
-            strcpy(newData, data);
+            strncpy(newData, data, length);
+            newData[length] = '\0';
         }
         else
         {
             newData[0] = '\0';
         }
 
-        strcat(newData, str);
+        strncat(newData, str, strLen);
         freeMemory();
         data = newData;
         length += strLen;
@@ -133,14 +139,15 @@ String &String::operator+=(const String &other)
 
         if (data != nullptr)
         {
-            strcpy(newData, data);
+            strncpy(newData, data, length);
+            newData[length] = '\0';
         }
         else
         {
             newData[0] = '\0';
         }
 
-        strcat(newData, other.data);
+        strncat(newData, other.data, other.length);
         freeMemory();
         data = newData;
         length += other.length;
