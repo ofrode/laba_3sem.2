@@ -154,24 +154,3 @@ String &String::operator+=(const String &other)
     }
     return *this;
 }
-
-String operator+(const String &lhs, const String &rhs)
-{
-    String result = lhs;
-    result += rhs;
-    return result;
-}
-
-String operator+(const String &lhs, const char *rhs)
-{
-    String result = lhs;
-    result += rhs;
-    return result;
-}
-
-String operator+(const char *lhs, const String &rhs)
-{
-    String result = String(lhs);
-    result += rhs;
-    return result;
-}

@@ -37,7 +37,24 @@ public:
         }
         return is;
     }
-    friend String operator+(const String &lhs, const String &rhs);
-    friend String operator+(const String &lhs, const char *rhs);
-    friend String operator+(const char *lhs, const String &rhs);
+    friend String operator+(const String& lhs, const String& rhs) {
+        String result = lhs;
+        result += rhs;
+        return result;
+    }
+    friend String operator+(const String& lhs, const char* rhs) {
+        String result = lhs;
+        if (rhs != nullptr) {
+            result += rhs;
+        }
+        return result;
+    }
+    friend String operator+(const char* lhs, const String& rhs) {
+        String result;
+        if (lhs != nullptr) {
+            result = lhs;
+        }
+        result += rhs;
+        return result;
+    }
 };
