@@ -1,4 +1,4 @@
-#include "string.h"
+#include "../headers/string.h"
 #include <iostream>
 #include <cstring>
 
@@ -148,23 +148,23 @@ String &String::operator+=(const String &other)
     return *this;
 }
 
-String String::operator+(const String &lhs, const String &rhs)
+String operator+(const String &lhs, const String &rhs)
 {
     String result = lhs;
     result += rhs;
     return result;
 }
 
-String String::operator+(const String &lhs, const char *rhs)
+String operator+(const String &lhs, const char *rhs)
 {
     String result = lhs;
     result += rhs;
     return result;
 }
 
-String String::operator+(const char *lhs, const String &rhs)
+String operator+(const char *lhs, const String &rhs)
 {
-    String result = lhs;
+    String result = String(lhs);
     result += rhs;
     return result;
 }
