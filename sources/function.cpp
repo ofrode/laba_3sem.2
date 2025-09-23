@@ -91,7 +91,9 @@ void multiplyString(String& str1, String& str2)
     clearInputBuffer();
 
     cout << "Какую строку хотите просуммировать (1 или 2): ";
-    if (cin >> choice; choice == 1)
+    cin >> chois;
+    clearInputBuffer();
+    if (choice == 1)
     {
         clearInputBuffer();
         str1 = concatenateStringMultipleTimes(str1, count);
